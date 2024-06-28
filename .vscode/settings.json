@@ -1,0 +1,17 @@
+{
+    "files.exclude": {
+        "**/.git": false,
+        "**/.svn": false,
+        "**/.hg": false,
+        "**/CVS": false,
+        "**/.DS_Store": false,
+        "**/Thumbs.db": false,
+        "**/.classpath": false,
+        "**/.project": false,
+        "**/.settings": false,
+        "**/.*": false
+    },
+    "explorerExclude.backup": {},
+    "cmake.buildBeforeRun": true,
+    "C_Cpp.default.configurationProvider": "ms-vscode.cmake-tools"
+}

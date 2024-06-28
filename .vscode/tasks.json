@@ -1,0 +1,17 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "launch minicom ttyACM0",
+            "type": "shell",
+            "command": "minicom -b 115200 -o -D /dev/ttyACM0", // Command to launch minicom
+            "args": [],
+            "group": {
+                "kind": "test",
+                "isDefault": false
+            }
+        }
+    ]
+}

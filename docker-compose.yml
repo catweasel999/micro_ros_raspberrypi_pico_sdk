@@ -1,0 +1,23 @@
+services:
+  app:
+    image: nexus.fritz.box:8083/ros2-cw-${ROS_DISTRO}-desktop-full-pico-linux-amd64:latest
+    init: true
+    # container_name: pico_free_rtos_course
+    network_mode: "host"
+    tty: true
+    stdin_open: true
+    group_add:
+      - 18 # dialout
+      - 46 # plugdev
+    environment:
+      - ROS_DISTRO=$ROS_DISTRO
+      - ROS_DOMAIN_ID=1
+      - ROS_AUTOMATIC_DISCOVERY_RANGE=SUBNET
+    devices:
+      - "/dev/bus/usb:/dev/bus/usb"
+      - "/dev/ttyACM0:/dev/ttyACM0"
+      - "/dev/ttyS0:/dev/ttyS0"
+      - "/dev/ttyS1:/dev/ttyS1"
+    volumes:
+      - /home/catweasel/tools:/tools:rw
+      - /home/catweasel/source:/source:rw

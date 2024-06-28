@@ -1,2 +1,5 @@
 /build
 pico-sdk
+cache
+install
+log
