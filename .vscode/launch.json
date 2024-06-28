@@ -43,6 +43,7 @@
     "compounds": [
         {
             "name": "Pico with minicom",
+            "stopAll": true,
             "configurations": [
                 "minicom 0",
                 "minicom 1",
