@@ -24,13 +24,12 @@ void timer_callback(rcl_timer_t *timer, int64_t last_call_time)
 int main()
 {
     rmw_uros_set_custom_transport(
-		true,
-		NULL,
-		pico_serial_transport_open,
-		pico_serial_transport_close,
-		pico_serial_transport_write,
-		pico_serial_transport_read
-	);
+        true,
+        NULL,
+        pico_serial_transport_open,
+        pico_serial_transport_close,
+        pico_serial_transport_write,
+        pico_serial_transport_read);
 
     gpio_init(LED_PIN);
     gpio_set_dir(LED_PIN, GPIO_OUT);
@@ -44,8 +43,8 @@ int main()
     allocator = rcl_get_default_allocator();
 
     // Wait for agent successful ping for 2 minutes.
-    const int timeout_ms = 1000; 
-    const uint8_t attempts = 120;
+    const int timeout_ms = 1000;
+    const uint8_t attempts = 10;
 
     rcl_ret_t ret = rmw_uros_ping_agent(timeout_ms, attempts);
 
