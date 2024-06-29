@@ -6,6 +6,4 @@
 //
 // This example uses a common include to avoid repetition
 #include "lwipopts_examples_common.h"
-// #define WIFI_SSID "@WIFI_SSID@"
-// #define WIFI_PASSWORD "@WIFI_PASSWORD@"
 #endif
