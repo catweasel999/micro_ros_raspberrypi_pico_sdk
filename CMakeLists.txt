@@ -41,7 +41,6 @@ target_include_directories(pico_micro_ros_udp_example PUBLIC
 )
 message(STATUS "PICO_BOARD: ${PICO_BOARD}")
 message(STATUS "WIFI_SSID: ${WIFI_SSID}")
-message(STATUS "WIFI_PASSWORD: ${WIFI_PASSWORD}")
 
 add_definitions(-DWIFI_SSID="${WIFI_SSID}")
 add_definitions(-DWIFI_PASSWORD="${WIFI_PASSWORD}")
