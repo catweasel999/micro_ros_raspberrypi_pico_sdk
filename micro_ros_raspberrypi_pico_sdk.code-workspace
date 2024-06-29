@@ -17,6 +17,12 @@
 			"**/.project": true,
 			"**/.settings": true,
 			"**/.*": true
+		},
+		"files.associations": {
+			".zsh_aliases": "shellscript",
+			"*.ipynb": "json",
+			"*.sdf": "html",
+			"lwipopts_examples_common.h": "c"
 		}
 	}
 }
