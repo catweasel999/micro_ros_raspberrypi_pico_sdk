@@ -44,7 +44,7 @@ int main()
 
     // Wait for agent successful ping for 2 minutes.
     const int timeout_ms = 1000;
-    const uint8_t attempts = 10;
+    const uint8_t attempts = 120;
 
     rcl_ret_t ret = rmw_uros_ping_agent(timeout_ms, attempts);
 
