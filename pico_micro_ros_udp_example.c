@@ -85,7 +85,9 @@ int main()
     printf("Connecting to WiFi, SSID: %s\n ...\n", WIFI_SSID);
 
     printf("SSID: %s\n", WIFI_SSID);
-    printf("password: %s\n", WIFI_PASSWORD);
+    // printf("password: %s\n", WIFI_PASSWORD);
+    printf("ros agent ip:port: %s:%d\n", ROS_AGENT_IP_ADDR, ROS_AGENT_UDP_PORT);
+    printf("ros domain id: %d\n", ROS_DOMAIN_ID);
 
     if (cyw43_arch_init())
     {
@@ -123,12 +125,13 @@ int main()
     // Initialize and modify options (Set DOMAIN ID to 1)
     rcl_init_options_t init_options = rcl_get_zero_initialized_init_options();
     rcl_init_options_init(&init_options, allocator);
-    rcl_init_options_set_domain_id(&init_options, ROS_DOMAIN_ID);
+    // rcl_init_options_set_domain_id(&init_options, ROS_DOMAIN_ID);
+    rcl_init_options_set_domain_id(&init_options, 1);
 
     rclc_support_t support;
     rclc_executor_t executor;
 
-    cyw43_arch_gpio_put(CYW43_WL_GPIO_LED_PIN, 1);
+    cyw43_arch_gpio_put(CYW43_WL_GPIO_LED_PIN, ROS_DOMAIN_ID);
 
     // Wait for agent successful ping for 1 minutes.
     const int timeout_ms = 1000;

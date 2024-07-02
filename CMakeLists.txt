@@ -41,9 +41,15 @@ target_include_directories(pico_micro_ros_udp_example PUBLIC
 )
 message(STATUS "PICO_BOARD: ${PICO_BOARD}")
 message(STATUS "WIFI_SSID: ${WIFI_SSID}")
+message(STATUS "ROS_AGENT_IP_ADDR: ${ROS_AGENT_IP_ADDR}")
+message(STATUS "ROS_AGENT_UDP_PORT: ${ROS_AGENT_UDP_PORT}")
+message(STATUS "ROS_DOMAIN_ID: ${ROS_DOMAIN_ID}")
 
 add_definitions(-DWIFI_SSID="${WIFI_SSID}")
 add_definitions(-DWIFI_PASSWORD="${WIFI_PASSWORD}")
+add_definitions(-DROS_AGENT_IP_ADDR="${ROS_AGENT_IP_ADDR}")
+add_definitions(-DROS_AGENT_UDP_PORT=${ROS_AGENT_UDP_PORT})
+add_definitions(-DROS_DOMAIN_ID=${ROS_DOMAIN_ID})
 
 SET(CMAKE_C_FLAGS  "${CMAKE_C_FLAGS} -ffunction-sections -fdata-sections")
 SET(CMAKE_CXX_FLAGS  "${CMAKE_CXX_FLAGS} -ffunction-sections -fdata-sections")

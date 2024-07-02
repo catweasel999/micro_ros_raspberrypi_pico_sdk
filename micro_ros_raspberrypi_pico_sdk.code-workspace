@@ -2,6 +2,9 @@
 	"folders": [
 		{
 			"path": "."
+		},
+		{
+			"path": "../../Documents/Pico-v1.5.1"
 		}
 	],
 	"settings": {

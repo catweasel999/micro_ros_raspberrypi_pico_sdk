@@ -9,9 +9,9 @@
 #include "lwip/pbuf.h"
 #include "lwip/udp.h"
 
-#define ROS_AGENT_UDP_PORT (8888)
-#define ROS_AGENT_IP_ADDR "192.168.178.121" // You need modify IP
-#define ROS_DOMAIN_ID 1
+// #define ROS_AGENT_UDP_PORT (8888)
+// #define ROS_AGENT_IP_ADDR "192.168.178.121" // You need modify IP
+// #define ROS_DOMAIN_ID 1
 #define ROS_NODE_NAME "pico_w_udp_node"
 
 #ifdef __cplusplus
