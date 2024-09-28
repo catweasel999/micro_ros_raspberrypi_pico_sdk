@@ -1,6 +1,17 @@
 cmake_minimum_required(VERSION 3.12)
 
-include($ENV{PICO_SDK_PATH}/external/pico_sdk_import.cmake)
+# include($ENV{PICO_SDK_PATH}/external/pico_sdk_import.cmake)
+
+set(PICO_W_CMAKE_FILE_PATH ${CMAKE_SOURCE_DIR}/pico_w-config.cmake)
+if(EXISTS ${PICO_W_CMAKE_FILE_PATH})
+    message(STATUS "bootstrap local config via ${PICO_W_CMAKE_FILE_PATH}")
+    include(${PICO_W_CMAKE_FILE_PATH})
+else()
+    message(FATAL_ERROR "Pico w project cmake file not found. Please create ${PICO_W_CMAKE_FILE_PATH}")
+endif()
+
+# Initialize the SDK
+include(pico_sdk_import.cmake)
 
 project(pico_micro_ros_example C CXX ASM)
 set(CMAKE_C_STANDARD 11)
@@ -45,11 +56,11 @@ message(STATUS "ROS_AGENT_IP_ADDR: ${ROS_AGENT_IP_ADDR}")
 message(STATUS "ROS_AGENT_UDP_PORT: ${ROS_AGENT_UDP_PORT}")
 message(STATUS "ROS_DOMAIN_ID: ${ROS_DOMAIN_ID}")
 
-add_definitions(-DWIFI_SSID="${WIFI_SSID}")
-add_definitions(-DWIFI_PASSWORD="${WIFI_PASSWORD}")
-add_definitions(-DROS_AGENT_IP_ADDR="${ROS_AGENT_IP_ADDR}")
-add_definitions(-DROS_AGENT_UDP_PORT=${ROS_AGENT_UDP_PORT})
-add_definitions(-DROS_DOMAIN_ID=${ROS_DOMAIN_ID})
+# add_definitions(-DWIFI_SSID="${WIFI_SSID}")
+# add_definitions(-DWIFI_PASSWORD="${WIFI_PASSWORD}")
+# add_definitions(-DROS_AGENT_IP_ADDR="${ROS_AGENT_IP_ADDR}")
+# add_definitions(-DROS_AGENT_UDP_PORT=${ROS_AGENT_UDP_PORT})
+# add_definitions(-DROS_DOMAIN_ID=${ROS_DOMAIN_ID})
 
 SET(CMAKE_C_FLAGS  "${CMAKE_C_FLAGS} -ffunction-sections -fdata-sections")
 SET(CMAKE_CXX_FLAGS  "${CMAKE_CXX_FLAGS} -ffunction-sections -fdata-sections")
