@@ -126,7 +126,7 @@ int main()
     rcl_init_options_t init_options = rcl_get_zero_initialized_init_options();
     rcl_init_options_init(&init_options, allocator);
     // rcl_init_options_set_domain_id(&init_options, ROS_DOMAIN_ID);
-    rcl_init_options_set_domain_id(&init_options, 1);
+    rcl_init_options_set_domain_id(&init_options, ROS_DOMAIN_ID);
 
     rclc_support_t support;
     rclc_executor_t executor;

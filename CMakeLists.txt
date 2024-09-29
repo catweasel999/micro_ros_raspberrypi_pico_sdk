@@ -50,6 +50,8 @@ target_include_directories(pico_micro_ros_udp_example PUBLIC
     libmicroros/include
     include
 )
+
+message("Microros config:")
 message(STATUS "PICO_BOARD: ${PICO_BOARD}")
 message(STATUS "WIFI_SSID: ${WIFI_SSID}")
 message(STATUS "ROS_AGENT_IP_ADDR: ${ROS_AGENT_IP_ADDR}")

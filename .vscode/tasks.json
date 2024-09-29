@@ -12,6 +12,11 @@
                 "kind": "test",
                 "isDefault": false
             }
+        },
+        {
+            "label": "analyze memory",
+            "type": "shell",
+            "command": "poetry -C ~/bin run python ~/bin/analyze_memory.py ${workspaceFolder}/build/src/${workspaceFolderBasename}.elf"
         }
     ]
 }
