@@ -2,13 +2,6 @@
 	"folders": [
 		{
 			"path": "."
-		},
-		{
-			"path": "../../../Obelix-Tresor/.config/pico_w"
-		},
-		{
-			"name": "uRos-Agent",
-			"path": "../uRos-Agent"
 		}
 	],
 	"settings": {
@@ -29,7 +22,17 @@
 			".zsh_aliases": "shellscript",
 			"*.ipynb": "json",
 			"*.sdf": "html",
-			"lwipopts_examples_common.h": "c"
+			"lwipopts_examples_common.h": "c",
+			"picow_udp_transports.h": "c",
+			"cyw43_arch.h": "c",
+			"custom_transport.h": "c",
+			"config.h": "c",
+			"communication.h": "c",
+			"visibility.h": "c"
+		},
+		"restructuredtext.pythonRecommendation.disabled": true,
+		"terminal.integrated.env.linux": {
+			"PROJECT_NAME": "uRos-UDP-Test"
 		}
 	}
 }
