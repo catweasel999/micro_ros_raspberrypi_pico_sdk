@@ -7,39 +7,43 @@
     },
     "configurePresets": [
         {
-            "name": "windows",
+            "name": "Pico Linux",
+            "displayName": "Pico Linux",
+            "description": "Pico SDK Toolchain",
             "hidden": false,
             "generator": "Ninja",
             "binaryDir": "${sourceDir}/build",
-            "condition": {
-                "type": "equals",
-                "lhs": "${hostSystemName}",
-                "rhs": "Windows"
-            },
             "cacheVariables": {
-                "CMAKE_BUILD_TYPE": "Debug"
+                "CMAKE_BUILD_TYPE": "Debug",
+                "PICO_BOARD": "pico_w",
+                "PICO_PLATFORM": "rp2040",
+                "PICO_SDK_PATH": "$env{PICO_SDK_PATH}"
             },
-            "environment": {},
-            "toolchainFile": "${env:PICO_SDK_PATH}/cmake/preload/toolchains/pico_arm_gcc.cmake"
-        },
-        {
-            "name": "linux",
-            "hidden": false,
-            "generator": "Ninja",
-            "binaryDir": "${sourceDir}/build",
-            "condition": {
-                "type": "equals",
-                "lhs": "${hostSystemName}",
-                "rhs": "Linux"
-            },
-            "cacheVariables": {
-                "CMAKE_BUILD_TYPE": "Debug"
+            "vendor": {
+                "microsoft.com/VisualStudioSettings/CMake/1.0": {
+                    "intelliSenseMode": "linux-gcc-arm"
+                }
             },
             "environment": {
                 "PICO_SDK_PATH": "/home/catweasel/pico/pico-sdk",
                 "PICO_EXAMPLES_PATH": "/home/catweasel/pico/pico-examples"
             },
-            "toolchainFile": "${env:PICO_SDK_PATH}/cmake/preload/toolchains/pico_arm_cortex_m0plus_gcc.cmake"
+            "toolchainFile": "${env:PICO_SDK_PATH}/cmake/preload/toolchains/pico_arm_cortex_m0plus_gcc.cmake",
+            "condition": {
+                "type": "equals",
+                "lhs": "${hostSystemName}",
+                "rhs": "Linux"
+            }
+        }
+    ],
+    "buildPresets": [
+        {
+            "name": "micros_test",
+            "displayName": "microros test",
+            "configurePreset": "Pico Linux",
+            "targets": [
+                "pico_micro_ros_udp_example"
+            ]
         }
     ]
 }

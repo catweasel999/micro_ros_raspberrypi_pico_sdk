@@ -13,5 +13,6 @@
     },
     "explorerExclude.backup": {},
     "cmake.buildBeforeRun": true,
-    "C_Cpp.default.configurationProvider": "ms-vscode.cmake-tools"
+    "C_Cpp.default.configurationProvider": "ms-vscode.cmake-tools",
+    "cmake.sourceDirectory": "/workspace/micro_ros_raspberrypi_pico_sdk"
 }
