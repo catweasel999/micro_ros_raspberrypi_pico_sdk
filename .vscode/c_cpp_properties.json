@@ -35,7 +35,7 @@
       ],
       "compilerPath": "/usr/bin/arm-none-eabi-gcc",
       "cStandard": "c11",
-      "cppStandard": "c++17",
+      "cppStandard": "c++11",
       "intelliSenseMode": "linux-gcc-arm",
       "configurationProvider": "ms-vscode.cmake-tools"
     }
