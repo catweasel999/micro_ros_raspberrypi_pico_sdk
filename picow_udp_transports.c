@@ -73,17 +73,17 @@ bool picow_udp_transport_open(struct uxrCustomTransport *transport)
         cyw43_arch_lwip_begin();
         params->pcb = udp_new();
         ipaddr_aton(ROS_AGENT_IP_ADDR, &(params->ipaddr));
-        params->port = ROS_AGENT_UDP_PORT;
+        params->port = ROS_AGENT_UDP_PORT_WHEEL;
 
         udp_recv(params->pcb, callback_recv, params);
         cyw43_arch_lwip_end();
 
-        printf("picow_udp_transport_open [%s:%d]: SUCCESS\n", ROS_AGENT_IP_ADDR, ROS_AGENT_UDP_PORT);
+        printf("picow_udp_transport_open [%s:%d]: SUCCESS\n", ROS_AGENT_IP_ADDR, ROS_AGENT_UDP_PORT_WHEEL);
         return true;
     }
     else
     {
-        printf("picow_udp_transport_open [%s:%d]: FAILURE\n", ROS_AGENT_IP_ADDR, ROS_AGENT_UDP_PORT);
+        printf("picow_udp_transport_open [%s:%d]: FAILURE\n", ROS_AGENT_IP_ADDR, ROS_AGENT_UDP_PORT_WHEEL);
         return false;
     }
 }
@@ -102,7 +102,7 @@ bool picow_udp_transport_close(struct uxrCustomTransport *transport)
         udp_remove(params->pcb);
         cyw43_arch_lwip_end();
 
-        printf("picow_udp_transport_close [%s:%d]: \n", ROS_AGENT_IP_ADDR, ROS_AGENT_UDP_PORT);
+        printf("picow_udp_transport_close [%s:%d]: \n", ROS_AGENT_IP_ADDR, ROS_AGENT_UDP_PORT_WHEEL);
     }
     return true;
 }

@@ -86,7 +86,7 @@ int main()
 
     printf("SSID: %s\n", WIFI_SSID);
     // printf("password: %s\n", WIFI_PASSWORD);
-    printf("ros agent ip:port: %s:%d\n", ROS_AGENT_IP_ADDR, ROS_AGENT_UDP_PORT);
+    printf("ros agent ip:port: %s:%d\n", ROS_AGENT_IP_ADDR, ROS_AGENT_UDP_PORT_WHEEL);
     printf("ros domain id: %d\n", ROS_DOMAIN_ID);
 
     if (cyw43_arch_init())
@@ -107,7 +107,7 @@ int main()
         printf("Connected.\n");
     }
 
-    printf("rmw_uros_set_custom_transport. Agent expected at %s:%d\n", ROS_AGENT_IP_ADDR, ROS_AGENT_UDP_PORT);
+    printf("rmw_uros_set_custom_transport. Agent expected at %s:%d\n", ROS_AGENT_IP_ADDR, ROS_AGENT_UDP_PORT_WHEEL);
     rmw_uros_set_custom_transport(
         MICROROS_TRANSPORTS_PACKET_MODE,
         &picow_params,
@@ -171,7 +171,7 @@ int main()
 
     if (loop == attempts)
     {
-        printf("Unreachable agent, exiting program. [%s:%d]\n", ROS_AGENT_IP_ADDR, ROS_AGENT_UDP_PORT);
+        printf("Unreachable agent, exiting program. [%s:%d]\n", ROS_AGENT_IP_ADDR, ROS_AGENT_UDP_PORT_WHEEL);
         cyw43_arch_gpio_put(CYW43_WL_GPIO_LED_PIN, 0);
         return ret;
     }
@@ -190,11 +190,11 @@ int main()
         ROSIDL_GET_MSG_TYPE_SUPPORT(std_msgs, msg, Float32),
         "picow_publisher");
 
-    rclc_timer_init_default(
+    rclc_timer_init_default2(
         &timer,
         &support,
         RCL_MS_TO_NS(1000),
-        timer_callback);
+        timer_callback, false);
 
     rclc_executor_init(&executor, &support.context, 1, &allocator);
     rclc_executor_add_timer(&executor, &timer);
